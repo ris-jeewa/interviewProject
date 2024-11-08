@@ -22,10 +22,22 @@ export class TodosService {
   }
 
   update(id: number, updateTodoDto: UpdateTodoDto) {
-    // if 
-    // return this.prisma.todo.update({where:{
-    //   id:id
-    // }})
+    const available = this.prisma.todo.findUnique({
+      where:{
+        id:id
+      }
+    })
+    if (!available){
+      return "no task"
+    }
+    else{
+      // return this.prisma.todo.update({
+      //   data:{
+      //     title:updateTodoDto.title,
+      //     completed:updateTodoDto.completed
+      //   }
+      // })
+    }
   }
 
   remove(id: number) {

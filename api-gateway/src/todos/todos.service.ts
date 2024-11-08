@@ -20,7 +20,7 @@ export class TodosService {
   }
 
   update(id: number, updateTodoDto: UpdateTodoDto) {
-    return this.todoClient.send('update-todo',{id:id,todo:updateTodoDto});
+    return this.todoClient.send('update-todo',{id,...updateTodoDto});
   }
 
   remove(id: number) {
